@@ -54,7 +54,7 @@ const webpackConfig = {
   }),
 	output: {
 		path: path.resolve(__dirname, 'dist'),
-		filename: isProd ? '[name]_[hash:6].js' : '[name].js',
+    filename: isProd ? '[name]_[hash:6].js' : '[name].js',
   },
   resolve: {
     extensions: ['.js', '.jsx'],
@@ -120,12 +120,17 @@ const webpackConfig = {
     new ExtractTextPlugin({
       filename: isProd ? '[name]_[contenthash:6].css' : '[name].css',
     }),
-    new CleanWebpackPlugin(),
-	]
+    new webpack.DllReferencePlugin({
+      manifest: './src/static/dll/vendor.manifest.json',
+      name: '_dll_vendor',
+    }),
+  ]
 }
 
 if (isProd) {
   webpackConfig.plugins.push(
+    // 清理上一次生成的文件
+    new CleanWebpackPlugin(),
     // 压缩 JS 代码
     new ParallelUglifyPlugin({
       sourceMap: true,
@@ -160,7 +165,6 @@ if(isDev) {
     }),
   );
   webpackConfig.devServer = {
-    contentBase: path.resolve(__dirname, 'dist'),
     historyApiFallback: true,
     hot: true,
     progress: true,
