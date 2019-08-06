@@ -9,7 +9,5 @@
 ```javascript
 import CellLimit from "@components/CellLimit";
 
-<CellLimit
-  // props
-/>
+<CellLimit width={200}>xxx</CellLimit>
 ```

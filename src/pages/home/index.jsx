@@ -33,7 +33,7 @@ class Home extends React.Component {
             <span>List</span>
           </Breadcrumb.Item>
         </Breadcrumb>
-        <h1>Welcome to Home</h1>
+        <h1><i class="iconfont icon-zhuye"></i> Welcome to Home</h1>
       </div>
     )
   }
