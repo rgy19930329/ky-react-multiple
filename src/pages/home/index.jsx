@@ -8,6 +8,7 @@ import "./index.less";
 import React from "react";
 import { render } from "react-dom";
 import { Breadcrumb, Icon } from "antd";
+import { Label } from "nice-ui";
 
 class Home extends React.Component {
 
@@ -33,7 +34,10 @@ class Home extends React.Component {
             <span>List</span>
           </Breadcrumb.Item>
         </Breadcrumb>
-        <h1><i class="iconfont icon-zhuye"></i> Welcome to Home</h1>
+        <h1><i className="iconfont icon-zhuye"></i> Welcome to Home</h1>
+        <div>
+          <Label />
+        </div>
       </div>
     )
   }

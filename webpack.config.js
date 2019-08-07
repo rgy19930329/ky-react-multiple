@@ -72,8 +72,11 @@ const webpackConfig = {
       {
         test: /\.(js|jsx)$/,
         loader: 'babel-loader',
-        include: path.resolve(__dirname, 'src'),
-        exclude: ['/node_modules/', path.resolve(__dirname, 'src/lib')],
+        include: [
+          path.resolve(__dirname, 'src'),
+          path.resolve(__dirname, 'node_modules/nice-ui'),
+        ],
+        exclude: [path.resolve(__dirname, 'src/lib')],
       },
       {
         test: /\.json$/,
