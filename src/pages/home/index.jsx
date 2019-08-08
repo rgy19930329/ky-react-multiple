@@ -7,10 +7,7 @@
 import "./index.less";
 import React from "react";
 import { render } from "react-dom";
-import { Breadcrumb, Icon } from "antd";
-import { Label } from "nice-ui";
-
-console.log(Label);
+import Header from "@components/Header";
 
 class Home extends React.Component {
 
@@ -24,21 +21,10 @@ class Home extends React.Component {
 
   render() {
     return (
-      <div className="page-wrapper page-home-wrapper">
-        <Breadcrumb>
-          <Breadcrumb.Item href="/home.html">
-            <Icon type="home" />
-          </Breadcrumb.Item>
-          <Breadcrumb.Item href="/home.html">
-            <span>Home</span>
-          </Breadcrumb.Item>
-          <Breadcrumb.Item href="/list.html">
-            <span>List</span>
-          </Breadcrumb.Item>
-        </Breadcrumb>
-        <h1><i className="iconfont icon-zhuye"></i> Welcome to Home</h1>
-        <div>
-          <Label />
+      <div className="page-home-wrapper">
+        <Header current="home" />
+        <div className="padding-wrapper">
+          <h1>Welcome to Home</h1>
         </div>
       </div>
     )

@@ -7,8 +7,9 @@
 import "./index.less";
 import React from "react";
 import { render } from "react-dom";
-import { Table, Breadcrumb, Icon } from "antd";
+import { Table } from "antd";
 import { fetch } from "@utils";
+import Header from "@components/Header";
 import CellLimit from "@components/CellLimit";
 
 class List extends React.Component {
@@ -124,26 +125,18 @@ class List extends React.Component {
   render() {
     return (
       <div className="page-wrapper page-list-wrapper">
-        <Breadcrumb>
-          <Breadcrumb.Item href="/home.html">
-            <Icon type="home" />
-          </Breadcrumb.Item>
-          <Breadcrumb.Item href="/home.html">
-            <span>Home</span>
-          </Breadcrumb.Item>
-          <Breadcrumb.Item href="/list.html">
-            <span>List</span>
-          </Breadcrumb.Item>
-        </Breadcrumb>
-        <div className="list-wrapper">
-          <Table
-            rowKey={record => record.email}
-            columns={this.createColumns()}
-            dataSource={this.state.dataSource}
-            pagination={this.createPagination()}
-            loading={!this.state.loaded}
-            locale={{ emptyText: "暂无数据" }}
-          />
+        <Header current="list" />
+        <div className="padding-wrapper">
+					<div className="list-wrapper">
+						<Table
+							rowKey={record => record.email}
+							columns={this.createColumns()}
+							dataSource={this.state.dataSource}
+							pagination={this.createPagination()}
+							loading={!this.state.loaded}
+							locale={{ emptyText: "暂无数据" }}
+						/>
+					</div>
         </div>
       </div>
     )
