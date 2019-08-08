@@ -10,6 +10,8 @@ import { render } from "react-dom";
 import { Breadcrumb, Icon } from "antd";
 import { Label } from "nice-ui";
 
+console.log(Label);
+
 class Home extends React.Component {
 
   constructor(props) {
